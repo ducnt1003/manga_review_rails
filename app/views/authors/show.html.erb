@@ -17,3 +17,29 @@
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>
+
+<p>
+  Manga: <%= @author.mangas.count %> 
+</p>
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @author.mangas.each_with_index do |manga, i| %>
+      <tr>
+        <td><%= i %></td>
+        <td><%= manga.title %></td>
+        <td><%= manga.get_category %></td>
+        <td><%= manga.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
