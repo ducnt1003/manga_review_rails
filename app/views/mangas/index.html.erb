@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Mangas</h1>
+<h1>Manga</h1>
 
 <table>
   <thead>
@@ -17,8 +17,8 @@
     <% @mangas.each do |manga| %>
       <tr>
         <td><%= manga.title %></td>
-        <td><%= manga.category_id %></td>
-        <td><%= manga.author_id %></td>
+        <td><%= manga.category %></td>
+        <td><%= manga.author %></td>
         <td><%= manga.description %></td>
         <td><%= link_to 'Show', manga %></td>
         <td><%= link_to 'Edit', edit_manga_path(manga) %></td>
