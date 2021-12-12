@@ -1,24 +1,24 @@
 <h1>Authors</h1>
 
 <table class="table">
-  <thead class="table-dark">
+  <thead class="table-dark fs-5">
     <tr>
       <th>Name</th>
       <th>Birthday</th>
       <th>Story</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @authors.each do |author| %>
       <tr>
-        <td><%= author.name %></td>
-        <td><%= author.birthday.strftime("%d/%m/%Y") %></td>
-        <td><%= author.story %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to author.name, author, class: "btn btn-outline-dark" %> </td>
+        <td><%= link_to author.birthday.strftime("%d/%m/%Y"), "#", class: "btn btn-outline-dark" %> </td>
+        <% if author.story != "" %>
+          <td><%= link_to author.story, "#", class: "btn btn-outline-dark text-break" %> </td>
+        <% else %>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Author', new_author_path %>
+<%= link_to 'New Author', new_author_path, class: "btn btn-outline-success" %>

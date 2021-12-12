@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field col-sm-5">
-    <%= form.label :title, class:"col-form-label" %>
+    <%= form.label :title, class:"col-form-label fs-4" %>
     <%= form.text_field :title, class:"form-control" %>
   </div>
 
   <div class="field col-sm-5">
-    <%= form.label :category_id, class:"col-form-label" %>
+    <%= form.label :category_id, class:"col-form-label fs-4" %>
     <%= form.collection_select :category_id, Category.all, :id, :category, class:"form-control"  %>
   </div>
 
   <div class="field col-sm-5">
-    <%= form.label :author_id, class:"col-form-label" %>
+    <%= form.label :author_id, class:"col-form-label fs-4" %>
     <%= form.collection_select :author_id, Author.all, :id, :name, class:"form-control" %>
   </div>
 
   <div class="field col-sm-5">
-    <%= form.label :description, class:"col-form-label"  %>
+    <%= form.label :description, class:"col-form-label fs-4"  %>
     <%= form.text_area :description, class:"form-control"  %>
   </div>
   
   <div class="field col-sm-5">
-    <%= form.label :image, class:"col-form-label" %>
+    <%= form.label :image, class:"col-form-label fs-4" %>
     <%= form.file_field :image, class:"form-control" %><br>
   </div>
 

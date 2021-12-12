@@ -1,21 +1,28 @@
-<p>
-  <strong>Category:</strong>
-  <%= @category.category %>
+<p class="fs-3">
+<strong>Category:</strong>
+<%= link_to @category.category, "#", class:"btn btn-outline-dark" %>
 </p>
 
-<p>
-  <strong>Detail:</strong>
-  <%= @category.detail %>
+<p class="fs-3">
+<strong>Detail:</strong>
+<% if @category.detail != "" %>
+  <%= link_to @category.detail, "#", class:"btn btn-outline-dark" %>
+<% end %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="btn-group" role="group">
+    <%= link_to 'Back', categories_path, class:"btn btn-outline-dark" %>
+  <%= link_to 'Edit', edit_author_path(@category), class:"btn btn-outline-primary" %>     
+  <td><%= link_to 'Delete', @category, method: :delete, data: { confirm: 'Are you sure?'},  class: "btn btn-outline-danger" %></td>
+</div>
 
-<p>
+<br><br><br>
+
+<p class="fs-2">
   Manga: <%= @category.mangas.count %> 
 </p>
 
-<table class="table">
+<table class="table fs-6">
   <thead class="table-dark">
     <tr>
       <th>#</th>
@@ -28,10 +35,14 @@
   <tbody>
     <% @category.mangas.each_with_index do |manga, i| %>
       <tr>
-        <td><%= i+1 %></td>
-        <td><%= manga.title %></td>
-        <td><%= manga.get_author %></td>
-        <td><%= manga.description %></td>
+        <td><%= link_to i+1, "#", class:"btn btn-outline-primary" %></td>
+        <td><%= link_to manga.title, manga, class:"btn btn-outline-dark" %></td>
+        <td><%= link_to manga.get_author, manga.author, class:"btn btn-outline-dark" %></td>
+        <% if manga.description != "" %>
+          <td><%= link_to manga.description, "#", class:"btn btn-outline-dark" %></td>
+        <% else %>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

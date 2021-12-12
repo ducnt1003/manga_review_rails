@@ -1,22 +1,22 @@
 <h1>Categories</h1>
 
 <table class="table">
-  <thead class="table-dark">
+  <thead class="table-dark fs-5">
     <tr>
       <th>Category</th>
       <th>Detail</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.category %></td>
-        <td><%= category.detail %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to category.category, category, class: "btn btn-outline-dark" %> </td>
+        <% if category.detail != "" %>
+          <td><%= link_to category.detail, "#", class: "btn btn-outline-dark" %> </td>
+        <% else %>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path, class:"btn btn-outline-success" %>

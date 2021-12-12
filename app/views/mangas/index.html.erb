@@ -1,7 +1,7 @@
 <h1>Manga</h1>
 
 <table class="table">
-  <thead class="table-dark">
+  <thead class="table-dark fs-5">
     <tr>
       <th>Title</th>
       <th>Category</th>
@@ -11,12 +11,16 @@
   </thead>
 
   <tbody>
-    <% @mangas.each do |manga| %>
+    <% @mangas.each_with_index do |manga| %>
       <tr>
         <td><%= link_to manga.title, manga, class: "btn btn-outline-primary text-break" %> </td>
         <td><%= link_to manga.get_category, manga.category, class: "btn btn-outline-dark" %> </td>
         <td><%= link_to manga.get_author, manga.author, class: "btn btn-outline-dark " %> </td>
-        <td><%= link_to manga.description, "#", class: "btn btn-outline-dark text-break" %> </td>
+        <% if manga.description != "" %>
+          <td><%= link_to manga.description, "#", class: "btn btn-outline-dark text-break" %> </td>
+        <% else %>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

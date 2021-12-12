@@ -4,24 +4,26 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @manga.title %>
+<p class="fs-3">
+<strong>Title:</strong>
+<%= link_to @manga.title, "#", class:"btn btn-outline-dark" %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @manga.get_category %>
+<p class="fs-3">
+<strong>Category:</strong>
+<%= link_to @manga.get_category, @manga.category, class:"btn btn-outline-dark" %>
 </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @manga.get_author %>
+<p class="fs-3">
+<strong>Author:</strong>
+<%= link_to @manga.get_author, @manga.author, class:"btn btn-outline-dark" %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @manga.description %>
+<p class="fs-3">
+<strong>Description:</strong>
+<% if @manga.description != "" %>
+  <%= link_to @manga.description, "#", class:"btn btn-outline-dark" %>
+<% end %>  
 </p>
 
 <div class="btn-group" role="group">
