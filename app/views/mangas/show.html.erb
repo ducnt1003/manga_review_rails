@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @manga.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @manga.category_id %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @manga.author_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @manga.description %>
+</p>
+
+<%= link_to 'Edit', edit_manga_path(@manga) %> |
+<%= link_to 'Back', mangas_path %>
