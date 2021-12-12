@@ -28,7 +28,7 @@
   <tbody>
     <% @category.mangas.each_with_index do |manga, i| %>
       <tr>
-        <td><%= i %></td>
+        <td><%= i+1 %></td>
         <td><%= manga.title %></td>
         <td><%= manga.get_author %></td>
         <td><%= manga.description %></td>

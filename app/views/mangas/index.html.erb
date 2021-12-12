@@ -1,26 +1,22 @@
 <h1>Manga</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="table-dark">
     <tr>
       <th>Title</th>
       <th>Category</th>
       <th>Author</th>
       <th>Description</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @mangas.each do |manga| %>
       <tr>
-        <td><%= manga.title %></td>
-        <td><%= manga.get_category %></td>
-        <td><%= manga.get_author %></td>
-        <td><%= manga.description %></td>
-        <td><%= link_to 'Show', manga %></td>
-        <td><%= link_to 'Edit', edit_manga_path(manga) %></td>
-        <td><%= link_to 'Destroy', manga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to manga.title, manga, class: "btn btn-outline-primary text-break" %> </td>
+        <td><%= link_to manga.get_category, manga.category, class: "btn btn-outline-dark" %> </td>
+        <td><%= link_to manga.get_author, manga.author, class: "btn btn-outline-dark " %> </td>
+        <td><%= link_to manga.description, "#", class: "btn btn-outline-dark text-break" %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Manga', new_manga_path %>
+<%= link_to 'New Manga', new_manga_path, class: "btn btn-outline-success" %>

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @author.name %>
@@ -35,7 +33,7 @@
   <tbody>
     <% @author.mangas.each_with_index do |manga, i| %>
       <tr>
-        <td><%= i %></td>
+        <td><%= i+1 %></td>
         <td><%= manga.title %></td>
         <td><%= manga.get_category %></td>
         <td><%= manga.description %></td>
