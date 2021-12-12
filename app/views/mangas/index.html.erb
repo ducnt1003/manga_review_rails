@@ -17,8 +17,8 @@
     <% @mangas.each do |manga| %>
       <tr>
         <td><%= manga.title %></td>
-        <td><%= manga.category %></td>
-        <td><%= manga.author %></td>
+        <td><%= manga.category.category %></td>
+        <td><%= manga.author.name %></td>
         <td><%= manga.description %></td>
         <td><%= link_to 'Show', manga %></td>
         <td><%= link_to 'Edit', edit_manga_path(manga) %></td>
