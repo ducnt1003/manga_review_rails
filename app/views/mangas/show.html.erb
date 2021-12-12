@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @manga.title %>
@@ -7,12 +5,12 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @manga.category.category %>
+  <%= @manga.get_category %>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @manga.author.name %>
+  <%= @manga.get_author %>
 </p>
 
 <p>

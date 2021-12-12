@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :reviews
-  has_and_belongs_to_many :mangas, join_table: 'favourites'
+#  has_and_belongs_to_many :mangas, join_table: 'favourites'
 end
