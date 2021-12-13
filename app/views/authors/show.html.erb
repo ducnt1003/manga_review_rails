@@ -1,6 +1,6 @@
 <p>
-  <% if @author.image.attached? %>
-    <%= image_tag @author.image %>
+  <% if @author.author_image.attached? %>
+    <%= image_tag @author.author_image %>
   <% end %>
 </p>
 
@@ -11,7 +11,7 @@
 
 <p class="fs-3">
 <strong>Birthday:</strong>
-<%= link_to @author.birthday, "#", class:"btn btn-outline-dark" %>
+<%= link_to @author.birthday.strftime("%d/%m/%Y"), "#", class:"btn btn-outline-dark" %>
 </p>
 
 <p class="fs-3">
@@ -27,12 +27,13 @@
   <td><%= link_to 'Delete', @author, method: :delete, data: { confirm: 'Are you sure?'},  class: "btn btn-outline-danger" %></td>
 </div>
 
+
 <br><br><br>
 
 <p class="fs-2">
   Manga: <%= @author.mangas.count %> 
 </p>
-
+<% if @author.mangas.count > 0 %>
 <table class="table fs-6">
   <thead class="table-dark">
     <tr>
@@ -58,3 +59,4 @@
     <% end %>
   </tbody>
 </table>
+<% end %>

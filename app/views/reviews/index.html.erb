@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Reviews</h1>
-
-<table>
-  <thead>
+<h1>Recent reviews</h1>
+<% if @reviews.count > 0 %>
+<table class="table">
+  <thead class="table-dark fs-5">
     <tr>
       <th>User</th>
       <th>Manga</th>
       <th>Comment</th>
-      <th colspan="3"></th>
+      <th>Time</th>
     </tr>
   </thead>
 
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.user_id %></td>
-        <td><%= review.manga_id %></td>
-        <td><%= review.comment %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if review.user.name != "" %>
+	  <td><%= link_to review.user.name, "#", class: "btn btn-outline-primary" %> </td>
+        <% else %>
+	  <td><%= link_to review.user.email, "#", class: "btn btn-outline-primary" %> </td>
+        <% end %>
+        <% if review.manga %>       
+          <td><%= link_to review.manga.title, review.manga, class: "btn btn-outline-dark" %> </td>
+        <% else %>
+          <td><%= link_to "Deleted", "#", class: "btn btn-outline-dark" %> </td>
+        <% end %>
+        <td><%= link_to review.comment, "#", class: "btn btn-outline-dark" %> </td>
+        <td><%= link_to review.created_at.localtime.strftime("%d/%m/%Y %H:%M:%S"), "#", class: "btn btn-outline-dark" %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Review', new_review_path %>
+<% else %>
+  <p class="fs-4">No review</p>
+<% end %>

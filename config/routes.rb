@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/profile'
   resources :reviews
   resources :authors
   resources :categories

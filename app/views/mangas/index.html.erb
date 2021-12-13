@@ -1,5 +1,6 @@
 <h1>Manga</h1>
 
+<% if @mangas.count > 0 %>
 <table class="table">
   <thead class="table-dark fs-5">
     <tr>
@@ -17,7 +18,7 @@
         <td><%= link_to manga.get_category, manga.category, class: "btn btn-outline-dark" %> </td>
         <td><%= link_to manga.get_author, manga.author, class: "btn btn-outline-dark " %> </td>
         <% if manga.description != "" %>
-          <td><%= link_to manga.description, "#", class: "btn btn-outline-dark text-break" %> </td>
+          <td><%= link_to manga.description, "#", class: "btn btn-outline-dark text-break text-start" %> </td>
         <% else %>
           <td></td>
         <% end %>
@@ -25,6 +26,10 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+  <p class="fs-4">No manga</p>
+<% end %>
 
 <br>
 
