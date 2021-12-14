@@ -9,6 +9,12 @@ class MangasController < ApplicationController
   # GET /mangas/1 or /mangas/1.json
   def show
     @review = Review.new
+
+    @favourites = Favourite.new
+    @is_active = false;
+    if user_signed_in?
+        @is_active = Favourite.exists?(user_id: current_user.id, manga_id: params[:id]) 
+    end
   end
 
   # GET /mangas/new

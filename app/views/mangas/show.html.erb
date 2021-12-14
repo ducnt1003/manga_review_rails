@@ -36,6 +36,18 @@
     <%= link_to 'Back', mangas_path, class:"btn btn-outline-dark" %>
   <%= link_to 'Edit', edit_manga_path(@manga), class:"btn btn-outline-primary" %>     
   <td><%= link_to 'Delete', @manga, method: :delete, data: { confirm: 'Are you sure?'},  class: "btn btn-outline-danger" %></td>
+  
+  <% if !@is_active %>
+    <%= form_with(model: @favourites, local: true) do |form| %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :manga_id, :value => @manga.id %>
+    <button type="submit" class="btn btn-outline-info">Add Favouries</button>
+    <% end %>
+  <% else %> 
+    <%# <button type="button" class="btn btn-info">Add Favouries</button>  %>
+    <a class="btn btn-info" data-method="delete" href="/favourites/del?user_id=<%= current_user.id%>&manga_id=<%= @manga.id %>">Remove favourite</a>
+  <% end %> 
+  
 </div>
 
 <br><br><br>
