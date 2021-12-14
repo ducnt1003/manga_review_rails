@@ -15,4 +15,5 @@ class User < ApplicationRecord
   
   has_many :reviews
   # has_and_belongs_to_many :mangas, join_table: 'favourites'
+  has_many :favourites
 end

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  delete 'favourites/del', to: 'favourites#del'
+  resources :favourites
+
   get 'users/profile'
   resources :reviews
   resources :authors
